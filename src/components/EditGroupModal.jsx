@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import { supabase } from '../lib/supabase'
 import { X, Upload, Sparkles, MapPin, Calendar, FileText, Image } from 'lucide-react'
-import { getCurrencyByLocation } from '../lib/countries'
+import { getCurrencyByLocation,  countries } from '../lib/countries'
 
 const UNSPLASH_ACCESS_KEY = import.meta.env.VITE_UNSPLASH_KEY
 
