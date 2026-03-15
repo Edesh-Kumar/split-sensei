@@ -33,41 +33,6 @@
 
 ---
 
-## 🚀 Running Locally
-
-### Prerequisites
-- Node.js v22+
-- A Supabase project
-- An Unsplash developer account
-
-### Setup
-
-1. Clone the repo:
-```bash
-   git clone https://github.com/YOUR_USERNAME/split-sensei.git
-   cd split-sensei
-```
-
-2. Install dependencies:
-```bash
-   npm install
-```
-
-3. Create a `.env` file in the root:
-```
-   VITE_SUPABASE_URL=your_supabase_url
-   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-   VITE_UNSPLASH_KEY=your_unsplash_key
-```
-
-4. Start the dev server:
-```bash
-   npm run dev
-```
-
-5. Open [http://localhost:5173](http://localhost:5173)
-
----
 
 ## 📁 Project Structure
 ```
