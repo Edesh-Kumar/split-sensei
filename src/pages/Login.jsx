@@ -101,7 +101,7 @@ export default function Login() {
 
       {/* Brand */}
       <div
-        style={{ position: "absolute", top: 32, left: 40, zIndex: 10 }}
+        style={{ position: "absolute", top: 24, left: 20, zIndex: 10 }}
         className="anim-fadeUp"
       >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -128,8 +128,9 @@ export default function Login() {
           width: "100%",
           maxWidth: 420,
           borderRadius: 24,
-          padding: "48px 40px",
-          margin: "0 20px",
+          padding: "clamp(28px, 6vw, 48px) clamp(20px, 5vw, 40px)",
+          margin: "0 16px",
+          boxSizing: "border-box",
         }}
       >
         <div className="anim-fadeUp anim-delay-1">
