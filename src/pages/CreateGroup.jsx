@@ -34,11 +34,7 @@ export default function CreateGroup() {
   const [suggestingPhoto, setSuggestingPhoto] = useState(false);
 
   const [form, setForm] = useState({
-    name: "",
-    description: "",
-    location: "",
-    start_date: "",
-    end_date: "",
+    name: '', description: '', location: '', start_date: '', end_date: '', currency: ''
   });
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
@@ -108,10 +104,8 @@ export default function CreateGroup() {
     const {
       data: { user },
     } = await supabase.auth.getUser();
-    const currency =
-      getCurrencyByLocation(form.location)?.currency ||
-      profile?.currency ||
-      "USD";
+    const currency = form.currency || getCurrencyByLocation(form.location)?.currency ||
+      profile?.currency || 'INR';
 
     // Upload image if file selected
     let imageUrl = imagePreview; // could be unsplash URL
@@ -471,14 +465,21 @@ export default function CreateGroup() {
                 className="input-field"
                 style={{ paddingLeft: 16 }}
               />
-              {form.location && (
-                <p
-                  style={{ fontSize: 12, color: "var(--accent)", marginTop: 6 }}
+              <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span style={{ fontSize: 12, color: 'var(--accent)' }}>💱 Currency:</span>
+                <select
+                  value={form.currency || getCurrencyByLocation(form.location)?.currency || 'USD'}
+                  onChange={e => setForm({ ...form, currency: e.target.value })}
+                  className="input-field"
+                  style={{ paddingLeft: 10, fontSize: 13, padding: '6px 10px', width: 'auto' }}
                 >
-                  💱 Currency will be set to:{" "}
-                  {getCurrencyByLocation(form.location)?.currency || "USD"}
-                </p>
-              )}
+                  {countries.map(c => (
+                    <option key={c.code} value={c.currency}>
+                      {c.currency} — {c.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
 
             {/* Dates */}

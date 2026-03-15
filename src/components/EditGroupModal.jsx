@@ -8,12 +8,13 @@ const UNSPLASH_ACCESS_KEY = import.meta.env.VITE_UNSPLASH_KEY
 export default function EditGroupModal({ group, onClose, onSaved }) {
   const fileInputRef = useRef()
   const [form, setForm] = useState({
-    name: group.name || '',
-    description: group.description || '',
-    location: group.location || '',
-    start_date: group.start_date || '',
-    end_date: group.end_date || '',
-  })
+  name: group.name || '',
+  description: group.description || '',
+  location: group.location || '',
+  start_date: group.start_date || '',
+  end_date: group.end_date || '',
+  currency: group.currency || 'INR',
+})
   const [image, setImage] = useState(null)
   const [imagePreview, setImagePreview] = useState(group.image_url || null)
   const [loading, setLoading] = useState(false)
@@ -65,7 +66,7 @@ export default function EditGroupModal({ group, onClose, onSaved }) {
       }
     }
 
-    const currency = getCurrencyByLocation(form.location)?.currency || group.currency
+    const currency = form.currency || getCurrencyByLocation(form.location)?.currency || group.currency
 
     const { error: updateError } = await supabase.from('groups').update({
       name: form.name.trim(),
@@ -169,11 +170,21 @@ export default function EditGroupModal({ group, onClose, onSaved }) {
             </label>
             <input name="location" type="text" value={form.location} onChange={handleChange}
               placeholder="e.g. Bali, Indonesia" className="input-field" style={{ paddingLeft: 14 }} />
-            {form.location && (
-              <p style={{ fontSize: 12, color: 'var(--accent)', marginTop: 6 }}>
-                💱 Currency: {getCurrencyByLocation(form.location)?.currency || group.currency}
-              </p>
-            )}
+            <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
+              <span style={{ fontSize: 12, color: 'var(--accent)' }}>💱 Currency:</span>
+              <select
+                value={form.currency || getCurrencyByLocation(form.location)?.currency || 'USD'}
+                onChange={e => setForm({ ...form, currency: e.target.value })}
+                className="input-field"
+                style={{ paddingLeft: 10, fontSize: 13, padding: '6px 10px', width: 'auto' }}
+              >
+                {countries.map(c => (
+                  <option key={c.code} value={c.currency}>
+                    {c.currency} — {c.name}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
 
           {/* Dates */}
