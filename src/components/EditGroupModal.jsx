@@ -1,4 +1,3 @@
-import { useState, useRef } from 'react'
 import { supabase } from '../lib/supabase'
 import { X, Upload, Sparkles, MapPin, Calendar, FileText, Image } from 'lucide-react'
 import { getCurrencyByLocation,  countries } from '../lib/countries'

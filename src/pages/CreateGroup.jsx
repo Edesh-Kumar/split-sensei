@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import { useAuth } from "../context/AuthContext";
@@ -16,7 +16,7 @@ import {
   Users,
   Image,
 } from "lucide-react";
-import { getCurrencyByLocation } from "../lib/countries";
+import { getCurrencyByLocation, countries } from "../lib/countries";
 
 const BG =
   "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1920&q=80";
@@ -42,6 +42,13 @@ export default function CreateGroup() {
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
+
+  useEffect(() => {
+    if (form.location) {
+      const detected = getCurrencyByLocation(form.location)?.currency
+      if (detected) setForm(prev => ({ ...prev, currency: detected }))
+    }
+  }, [form.location])
 
   const handleImage = (e) => {
     const file = e.target.files[0];
