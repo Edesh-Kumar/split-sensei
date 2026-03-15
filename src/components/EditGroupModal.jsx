@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { supabase } from '../lib/supabase'
 import { X, Upload, Sparkles, MapPin, Calendar, FileText, Image } from 'lucide-react'
 import { getCurrencyByLocation,  countries } from '../lib/countries'
+import { useState, useRef, useEffect } from 'react'
 
 const UNSPLASH_ACCESS_KEY = import.meta.env.VITE_UNSPLASH_KEY
 
@@ -20,6 +21,12 @@ export default function EditGroupModal({ group, onClose, onSaved }) {
   const [loading, setLoading] = useState(false)
   const [suggestingPhoto, setSuggestingPhoto] = useState(false)
   const [error, setError] = useState('')
+  useEffect(() => {
+  if (form.location) {
+    const detected = getCurrencyByLocation(form.location)?.currency
+    if (detected) setForm(prev => ({ ...prev, currency: detected }))
+  }
+}, [form.location])
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value })
 
