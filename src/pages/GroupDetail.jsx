@@ -689,7 +689,7 @@ export default function GroupDetail() {
       {/* Hero */}
       <div style={{ position: 'relative', zIndex: 2, height: 260, overflow: 'hidden' }}>
        <div style={{ width: '100%', height: '100%', background: 'linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.5))' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, #0e0e12 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.25) 100%)' }} />
         <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '20px 20px 24px', maxWidth: 1100, margin: '0 auto', left: 0, right: 0 }}>
           <button onClick={() => navigate('/dashboard')} style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 10, padding: '7px 14px', cursor: 'pointer', color: 'var(--cream)', fontSize: 13, fontFamily: 'DM Sans, sans-serif', width: 'fit-content' }}>
             <ArrowLeft size={14} /> Dashboard

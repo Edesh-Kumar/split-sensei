@@ -7,7 +7,7 @@ export default function PageBackground({ image }) {
         position: 'fixed', inset: 0, zIndex: 0,
         backgroundImage: `url(${image || BG})`,
         backgroundSize: 'cover', backgroundPosition: 'center 60%',
-        filter: 'brightness(0.55)'
+        filter: 'brightness(0.7)'
       }} />
       <div style={{ position: 'fixed', inset: 0, zIndex: 1, background: 'rgba(0,0,0,0.4)' }} />
     </>
