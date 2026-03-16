@@ -75,6 +75,7 @@ export default function Login() {
         justifyContent: "center",
         position: "relative",
         overflow: "hidden",
+        paddingBottom: 60,
       }}
     >
       <div
