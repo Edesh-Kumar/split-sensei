@@ -331,9 +331,10 @@ export default function Login() {
         <p
           style={{
             color: "rgba(245,240,232,0.3)",
-            fontSize: 11,
-            letterSpacing: "1px",
+            fontSize: "clamp(9px, 2.2vw, 11px)",
+            letterSpacing: "0.8px",
             textTransform: "uppercase",
+            whiteSpace: "nowrap",
           }}
         >
           Split expenses · Track adventures · Travel together
