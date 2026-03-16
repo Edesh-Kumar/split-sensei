@@ -71,10 +71,12 @@ export default function Login() {
       style={{
         minHeight: "100vh",
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         position: "relative",
         overflow: "hidden",
+        paddingTop: 80,
         paddingBottom: 60,
       }}
     >
@@ -102,7 +104,7 @@ export default function Login() {
 
       {/* Brand */}
       <div
-        style={{ position: "absolute", top: 24, left: 20, zIndex: 10 }}
+        style={{ position: "absolute", top: 20, left: 20, zIndex: 10 }}
         className="anim-fadeUp"
       >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
