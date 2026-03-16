@@ -194,7 +194,7 @@ export default function EditGroupModal({ group, onClose, onSaved }) {
           </div>
 
           {/* Dates */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 14 }}>
             <div>
               <label className="label" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                 <Calendar size={12} /> Start Date
