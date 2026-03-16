@@ -331,8 +331,8 @@ export default function Login() {
         <p
           style={{
             color: "rgba(245,240,232,0.3)",
-            fontSize: 13,
-            letterSpacing: "1.5px",
+            fontSize: 11,
+            letterSpacing: "1px",
             textTransform: "uppercase",
           }}
         >
